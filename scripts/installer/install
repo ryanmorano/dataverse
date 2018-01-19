@@ -113,6 +113,7 @@ my %CONFIG_PROMPTS = (
     'SOLR_LOCATION',     'Remote SOLR indexing service',
 
     'TWORAVENS_LOCATION', 'Will this Dataverse be using TwoRavens application',
+    # What about other external tools like Data Explorer?
 
     'RSERVE_HOST',     'Rserve Server',
     'RSERVE_PORT',     'Rserve Server Port',
@@ -1319,6 +1320,7 @@ else
 # Otherwise, set the "NO TwoRavens FOR YOU!" option in the settings:
 
 
+# FIXME: revisit all this code when TwoRavens becomes an external tool.
 if ($CONFIG_DEFAULTS{'TWORAVENS_LOCATION'} ne 'NOT INSTALLED')
 {
     print "Executing " . "curl -X PUT -d " . $CONFIG_DEFAULTS{'TWORAVENS_LOCATION'} . " " . $API_URL . "/admin/settings/:TwoRavensUrl" . "\n";

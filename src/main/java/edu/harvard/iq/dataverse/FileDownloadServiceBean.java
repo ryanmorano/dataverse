@@ -5,7 +5,6 @@ import edu.harvard.iq.dataverse.authorization.Permission;
 import edu.harvard.iq.dataverse.authorization.users.ApiToken;
 import edu.harvard.iq.dataverse.authorization.users.AuthenticatedUser;
 import edu.harvard.iq.dataverse.authorization.users.User;
-import edu.harvard.iq.dataverse.datasetutility.TwoRavensHelper;
 import edu.harvard.iq.dataverse.datasetutility.WorldMapPermissionHelper;
 import edu.harvard.iq.dataverse.engine.command.exception.CommandException;
 import edu.harvard.iq.dataverse.engine.command.impl.CreateGuestbookResponseCommand;
@@ -69,7 +68,6 @@ public class FileDownloadServiceBean implements java.io.Serializable {
     @Inject
     DataverseRequestServiceBean dvRequestService;
     
-    @Inject TwoRavensHelper twoRavensHelper;
     @Inject WorldMapPermissionHelper worldMapPermissionHelper;
     @Inject FileDownloadHelper fileDownloadHelper;
 
@@ -193,6 +191,7 @@ public class FileDownloadServiceBean implements java.io.Serializable {
         }
     }
 
+    // FIXME: This is used by TwoRavens. Work toward deleting it?
     public String startExploreDownloadLink(GuestbookResponse guestbookResponse, FileMetadata fmd){
 
         if (guestbookResponse != null && guestbookResponse.isWriteResponse() 
@@ -212,7 +211,9 @@ public class FileDownloadServiceBean implements java.io.Serializable {
         } else {
             datafileId = fmd.getDataFile().getId();
         }
-        String retVal = twoRavensHelper.getDataExploreURLComplete(datafileId);
+        //FIXME: Get TwoRavens URL from its instantiation as an external tool.
+        String retVal = "FIXME: Get TwoRavens URL from its instantiation as an external tool";
+//        String retVal = twoRavensHelper.getDataExploreURLComplete(datafileId);
 
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect(retVal);

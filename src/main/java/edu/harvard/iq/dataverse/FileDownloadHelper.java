@@ -247,7 +247,8 @@ public class FileDownloadHelper implements java.io.Serializable {
 
      }
      
-    public String startExploreDownloadLink(GuestbookResponse guestbookResponse, FileMetadata fmd){
+     // TODO: This is used by TwoRavens. Work toward deleting it?
+     public String startExploreDownloadLink(GuestbookResponse guestbookResponse, FileMetadata fmd){
         
         RequestContext requestContext = RequestContext.getCurrentInstance();
         boolean valid = validateGuestbookResponse(guestbookResponse);

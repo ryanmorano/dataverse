@@ -76,7 +76,9 @@
                 </li>
             </ui:repeat>
             <!--TwoRavens-->
-            <li jsf:rendered="#{twoRavensHelper.canSeeTwoRavensExploreButtonFromPage(fileMetadata)}">
+            <!--FIXME: Refactor TwoRavens into an external tool-->
+            <!--FIXME: Get this page working without twoRavensHelper (deleted)-->
+            <li jsf:rendered="#{true or twoRavensHelper.canSeeTwoRavensExploreButtonFromPage(fileMetadata)}">
                 <h:commandLink rendered="#{!downloadPopupRequired}"
                                styleClass="#{(fileMetadata.dataFile.ingestInProgress) ? 'disabled' : ''}"
                                disabled="#{(fileMetadata.dataFile.ingestInProgress or lockedFromDownload) ? 'disabled' : ''}"
