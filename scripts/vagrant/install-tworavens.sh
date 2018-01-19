@@ -17,6 +17,8 @@ if [ ! -f $COMMIT ]; then
 fi
 # FIXME: copy preprocess.R into Glassfish while running and overwrite it
 # FIXME: enable TwoRavens by POSTing twoRavens.json. See note below about port 8888 vs 8080.
+# TODO: programatically edit twoRavens.json to change "toolUrl" to "http://localhost:8888/dataexplore/gui.html"
+curl -X POST -H 'Content-type: application/json' --upload-file /dataverse/doc/sphinx-guides/source/_static/installation/files/root/external-tools/twoRavens.json http://localhost:8080/api/admin/externalTools
 # Port 8888 because we're running in Vagrant. On the dev1 server we use https://dev1.dataverse.org/dataexplore/gui.html
 cd /root
 DIR=/var/www/html/dataexplore
